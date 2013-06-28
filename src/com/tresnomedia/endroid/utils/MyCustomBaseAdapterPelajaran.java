@@ -12,22 +12,20 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class MyCustomBaseAdapter extends BaseAdapter {
+public class MyCustomBaseAdapterPelajaran extends BaseAdapter {
 	private static ArrayList<SearchResults> searchArrayList;
 	private Integer[] imgid = {
-			//MainMenu
-			R.drawable.menu1, //1
-			R.drawable.menu2, //2
-			R.drawable.menu3, //3
-			R.drawable.menu4, //4
-			R.drawable.menu5, //5
-			R.drawable.menu6 //6
+			R.drawable.ipa, //10
+			R.drawable.ips, //11
+			R.drawable.mm, //12
+			R.drawable.big, //13
+			R.drawable.bin //14
 			
 			};
 	
 	private LayoutInflater mInflater;
 	
-	public MyCustomBaseAdapter(Context context, ArrayList<SearchResults> results) {
+	public MyCustomBaseAdapterPelajaran(Context context, ArrayList<SearchResults> results) {
 		searchArrayList = results;
 		mInflater = LayoutInflater.from(context);
 	}

@@ -70,12 +70,6 @@
                 android:singleLine="true"
                 android:layout_marginTop="5dip"/>
           <!-- Error Message -->
-		  <TextView android:id="@+id/register_error"
-            		android:layout_width="fill_parent"
-            		android:layout_height="wrap_content"
-            		android:textColor="#e30000"
-            		android:padding="10dip"
-            		android:textStyle="bold"/>
           <!-- Register Button -->
           <Button android:id="@+id/btnRegister"
                 android:layout_width="fill_parent"

@@ -12,7 +12,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class MyCustomBaseAdapter extends BaseAdapter {
+public class MyCustomBaseAdapterMainMenu extends BaseAdapter {
 	private static ArrayList<SearchResults> searchArrayList;
 	private Integer[] imgid = {
 			//MainMenu
@@ -27,7 +27,7 @@ public class MyCustomBaseAdapter extends BaseAdapter {
 	
 	private LayoutInflater mInflater;
 	
-	public MyCustomBaseAdapter(Context context, ArrayList<SearchResults> results) {
+	public MyCustomBaseAdapterMainMenu(Context context, ArrayList<SearchResults> results) {
 		searchArrayList = results;
 		mInflater = LayoutInflater.from(context);
 	}

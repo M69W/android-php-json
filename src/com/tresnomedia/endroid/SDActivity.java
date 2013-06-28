@@ -3,33 +3,33 @@ package com.tresnomedia.endroid;
 import java.util.ArrayList;
 
 import com.tresnomedia.endroid.utils.ConnectionDetector;
-import com.tresnomedia.endroid.utils.MyCustomBaseAdapterMainMenu;
+import com.tresnomedia.endroid.utils.MyCustomBaseAdapterPelajaran;
 import com.tresnomedia.endroid.utils.SearchResults;
 import com.tresnomedia.endroid.utils.UserFunctions;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.app.Activity;
-import android.content.Intent;
 
-public class MainMenuActivity extends Activity {
+public class SDActivity extends Activity {
 	UserFunctions userFunctions;
 	ConnectionDetector cd;
 	Boolean isInternetPresent = false;
-
+	
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
                
         userFunctions = new UserFunctions();
         if(userFunctions.isUserLoggedIn(getApplicationContext())) {
-        	setContentView(R.layout.activity_main_menu);
+        	setContentView(R.layout.activity_sd);
             ArrayList<SearchResults> searchResults = GetSearchResults();
             final ListView lv1 = (ListView) findViewById(R.id.list);
-            lv1.setAdapter(new MyCustomBaseAdapterMainMenu(this, searchResults));
+            lv1.setAdapter(new MyCustomBaseAdapterPelajaran(this, searchResults));
 		
             cd = new ConnectionDetector(getApplicationContext());
             
@@ -41,25 +41,15 @@ public class MainMenuActivity extends Activity {
             		isInternetPresent = cd.isConnectingToInternet();
             		if (isInternetPresent) {
             			switch(position) {
-            			case 0: Intent klinik = new Intent(getApplicationContext(), KlinikBelajarActivity.class);
-            					startActivity(klinik);
+            			case 0: Intent i = new Intent(getApplicationContext(), AllPelajaranActivity.class);
+            					i.putExtra("params", "pelajaran");
+            					startActivity(i);
             					break;
             			case 1: break;
             			case 2: break;
-            			case 3: break;
-            			case 4: Intent newActivity = new Intent(getApplicationContext(), ProfileActivity.class);
-            					startActivity(newActivity);
-            					break;
-            			case 5:	userFunctions.logoutUser(getApplicationContext());
-								Intent login = new Intent(getApplicationContext(), LoginActivity.class);
-								login.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-								startActivity(login);
-								// Closing dashboard screen
-								finish();
-								break;
 								}
             		} else {
-            			cd.showAlertDialog(MainMenuActivity.this, "No Internet Connection",
+            			cd.showAlertDialog(SDActivity.this, "No Internet Connection",
                                 "You don't have internet connection.", false);
             		}
             	}
@@ -78,33 +68,18 @@ public class MainMenuActivity extends Activity {
     	ArrayList<SearchResults> results = new ArrayList<SearchResults>();
     	
     	SearchResults sr1 = new SearchResults();
-    	sr1.setName("Klinik Belajar");
-    	sr1.setImageNumber(1);
-    	results.add(sr1);
-    	
-    	sr1 = new SearchResults();
-    	sr1.setName("Bank Soal");
-    	sr1.setImageNumber(2);
-    	results.add(sr1);
-    	
-    	sr1 = new SearchResults();
-    	sr1.setName("Kelas Diskusi");
-    	sr1.setImageNumber(3);
-    	results.add(sr1);
-    	
-    	sr1 = new SearchResults();
-    	sr1.setName("Media Pustaka");
-    	sr1.setImageNumber(4);
-    	results.add(sr1);
-    	
-    	sr1 = new SearchResults();
-    	sr1.setName("Profil");
+    	sr1.setName("Bahasa Indonesia");
     	sr1.setImageNumber(5);
     	results.add(sr1);
     	
     	sr1 = new SearchResults();
-    	sr1.setName("Log out");
-    	sr1.setImageNumber(6);
+    	sr1.setName("Ilmu Pengetahuan Alam");
+    	sr1.setImageNumber(1);
+    	results.add(sr1);
+    	
+    	sr1 = new SearchResults();
+    	sr1.setName("Matematika");
+    	sr1.setImageNumber(3);
     	results.add(sr1);
     	
     	return results;

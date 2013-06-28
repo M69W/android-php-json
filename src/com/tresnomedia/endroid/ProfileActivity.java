@@ -1,5 +1,10 @@
 package com.tresnomedia.endroid;
 
+
+import java.util.HashMap;
+
+import com.tresnomedia.endroid.library.DatabaseHandler;
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,6 +18,7 @@ public class ProfileActivity extends Activity {
 	Button btnChangePass;
 	Button btnBacktoMenu;
 	
+	
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,11 +29,16 @@ public class ProfileActivity extends Activity {
         btnChangePass = (Button) findViewById(R.id.btnProf_ChangePass);
         btnBacktoMenu = (Button) findViewById(R.id.btnProf_BackToMain);
         
+		DatabaseHandler db = new DatabaseHandler(getApplicationContext());
+		HashMap<String,String> details = db.getUserDetails();
+		
+		fullNameProfile.setText(details.get("name"));
+		eMailProfile.setText(details.get("email"));
+               
         btnChangePass.setOnClickListener(new View.OnClickListener() {
 			
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				
 			}
 		});
         btnBacktoMenu.setOnClickListener(new View.OnClickListener() {

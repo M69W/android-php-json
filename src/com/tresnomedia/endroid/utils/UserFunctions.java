@@ -21,8 +21,8 @@ public class UserFunctions {
 	
 	private JSONParser jsonParser;
 	
-	private static String loginURL = "http://10.0.2.2/android_login_api/";
-	private static String registerURL = "http://10.0.2.2/android_login_api/";
+	private static String loginURL = "http://semuacerdas.com/android_api_7519851/";
+	private static String registerURL = "http://semuacerdas.com/android_api_7519851/";
 	
 	private static String login_tag = "login";
 	private static String register_tag = "register";

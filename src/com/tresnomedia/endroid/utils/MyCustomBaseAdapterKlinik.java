@@ -12,22 +12,17 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class MyCustomBaseAdapter extends BaseAdapter {
+public class MyCustomBaseAdapterKlinik extends BaseAdapter {
 	private static ArrayList<SearchResults> searchArrayList;
 	private Integer[] imgid = {
-			//MainMenu
-			R.drawable.menu1, //1
-			R.drawable.menu2, //2
-			R.drawable.menu3, //3
-			R.drawable.menu4, //4
-			R.drawable.menu5, //5
-			R.drawable.menu6 //6
-			
+			R.drawable.sd, //7
+			R.drawable.smp, //8
+			R.drawable.sma //9
 			};
 	
 	private LayoutInflater mInflater;
 	
-	public MyCustomBaseAdapter(Context context, ArrayList<SearchResults> results) {
+	public MyCustomBaseAdapterKlinik(Context context, ArrayList<SearchResults> results) {
 		searchArrayList = results;
 		mInflater = LayoutInflater.from(context);
 	}

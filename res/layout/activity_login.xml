@@ -58,13 +58,6 @@
                 android:layout_marginTop="5dip"
                 android:singleLine="true"
                 android:password="true" />
-          <!-- Error Message -->
-          <TextView android:id="@+id/login_error"
-            		android:layout_width="fill_parent"
-            		android:layout_height="wrap_content"
-            		android:textColor="#e30000"
-            		android:padding="10dip"
-            		android:textStyle="bold"/>
           <!-- Login button -->
           <Button android:id="@+id/btnLogin"
                 android:layout_width="fill_parent"
